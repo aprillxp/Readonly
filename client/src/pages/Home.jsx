@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { axios } from "axios";
+import axios from "axios";
 import Spinner from "../components/Spinner";
 import { Link } from "react-router-dom";
 import { AiOutlineEdit } from "react-icons/ai";
@@ -32,49 +32,58 @@ const Home = () => {
           <MdOutlineAddBox className="text-indigo-800 text-4xl"></MdOutlineAddBox>
         </Link>
       </div>
-      {loading} ? (
-      <Spinner />) : (
-      <table className="w-full border-separate border-spacing-2">
-        <thead>
-          <tr>
-            <th className="border border-indigo-500 rounded-md">No</th>
-            <th className="border border-indigo-500 rounded-md">Title</th>
-            <th className="border border-indigo-500 rounded-md max-md:hidden">
-              Author
-            </th>
-            <th className="border border-indigo-500 rounded-md max-md:hidden">
-              Year
-            </th>
-            <th className="border border-indigo-500 rounded-md">Operations</th>
-          </tr>
-        </thead>
-        <tbody>
-          {books.map((book, i) => {
-            <tr key={book.id} className="h-8">
-              <td className="border border-indigo-600 rounded-md text-center">
-                {i + 1}
-              </td>
-              <td className="border border-indigo-600 rounded-md text-center">
-                {book.title}
-              </td>
-              <td className="border border-indigo-600 rounded-md text-center max-md:hidden">
-                {book.author}
-              </td>
-              <td className="border border-indigo-600 rounded-md text-center max-md:hidden">
-                {book.publishYear}
-              </td>
-              <td className="border border-indigo-600 rounded-md text-center">
-                <div className="flex justify-center gap-x-4">
-                  <Link to={`/books/details/${book.id}`}>
-                    <BsInfoCircle className="text-2xl text-white" />
-                  </Link>
-                </div>
-              </td>
-            </tr>;
-          })}
-        </tbody>
-      </table>
-      )
+      {loading ? (
+        <Spinner />
+      ) : (
+        <table className="w-full border-separate border-spacing-2">
+          <thead>
+            <tr>
+              <th className="border border-indigo-500 rounded-md">No</th>
+              <th className="border border-indigo-500 rounded-md">Title</th>
+              <th className="border border-indigo-500 rounded-md max-md:hidden">
+                Author
+              </th>
+              <th className="border border-indigo-500 rounded-md max-md:hidden">
+                Year
+              </th>
+              <th className="border border-indigo-500 rounded-md">
+                Operations
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {books.map((book, i) => (
+              <tr key={book.id} className="h-8">
+                <td className="border border-indigo-600 rounded-md text-center">
+                  {i + 1}
+                </td>
+                <td className="border border-indigo-600 rounded-md text-center">
+                  {book.title}
+                </td>
+                <td className="border border-indigo-600 rounded-md text-center max-md:hidden">
+                  {book.author}
+                </td>
+                <td className="border border-indigo-600 rounded-md text-center max-md:hidden">
+                  {book.publishYear}
+                </td>
+                <td className="border border-indigo-600 rounded-md text-center">
+                  <div className="flex justify-center gap-x-4">
+                    <Link to={`/books/details/${book.id}`}>
+                      <BsInfoCircle className="text-2xl text-white" />
+                    </Link>
+                    <Link to={`/books/edit/${book.id}`}>
+                      <AiOutlineEdit className="text-2xl text-yellow-500" />
+                    </Link>
+                    <Link to={`/books/delete/${book.id}`}>
+                      <MdOutlineDelete className="text-2xl text-red-700" />
+                    </Link>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
     </div>
   );
 };
