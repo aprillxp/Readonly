@@ -23,7 +23,7 @@ const UpdateBook = () => {
         setLoading(false);
       })
       .catch((err) => {
-        setLoading(false);
+        setLoading(true);
         alert("Error. Please check your console :)");
         console.log(err);
       });
@@ -61,7 +61,7 @@ const UpdateBook = () => {
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="border-2 border-gray-500 px-4 py-2 w-full"
+            className="border-2 border-gray-500 px-4 py-2 w-full rounded-lg"
           />
         </div>
         <div className="my-4">
@@ -70,7 +70,7 @@ const UpdateBook = () => {
             type="text"
             value={author}
             onChange={(e) => setAuthor(e.target.value)}
-            className="border-2 border-gray-500 px-4 py-2 w-full"
+            className="border-2 border-gray-500 px-4 py-2 w-full rounded-lg"
           />
         </div>
         <div className="my-4">
@@ -79,15 +79,18 @@ const UpdateBook = () => {
             type="text"
             value={publishYear}
             onChange={(e) => setPublishYear(e.target.value)}
-            className="border-2 border-gray-500 px-4 py-2 w-full"
+            className="border-2 border-gray-500 px-4 py-2 w-full rounded-lg"
           />
         </div>
-        <button className="p-2 bg-indigo-500" onClick={handleUpdateBook}>
+        <button
+          className="p-2 bg-indigo-500 rounded-lg m-4"
+          onClick={handleUpdateBook}
+        >
           Save
         </button>
       </div>
     </div>
   );
 };
-
+// 43
 export default UpdateBook;
