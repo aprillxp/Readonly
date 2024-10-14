@@ -12,7 +12,7 @@ const ShowBooks = () => {
   useEffect(() => {
     setLoading(true);
     axios
-      .get(`http://localhost:5555/books/${id}`)
+      .get(`${import.meta.env.VITE_REACT_APP_BACKEND_BASEURL}/books/${id}`)
       .then((res) => {
         setBook(res.data);
         setLoading(false);
