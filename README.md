@@ -8,14 +8,11 @@
 
 ✅ **User Authentication & Authorization** – Secure login and account management.  
 ✅ **Book Catalog & Search** – Browse, filter, and search for books.  
-✅ **Shopping Cart & Checkout** – Add books to the cart and complete purchases securely.  
-✅ **Order Management** – Track and manage orders.
+✅ **Shopping Cart & Checkout** – Add books to the cart and complete purchases securely.
 
 ### Admin Features
 
-✅ **Book Management** – Add, edit, and remove books.  
-✅ **Order Management** – View and manage customer orders.  
-✅ **User Management** – Oversee user accounts and access controls.
+✅ **Book Management** – Add, edit, and remove books.
 
 ## 🛠️ Tech Stack
 
@@ -23,7 +20,7 @@
 - **Backend:** Node.js, Express.js
 - **Database:** MongoDB
 - **Authentication:** JWT (JSON Web Token)
-- **Deployment:** Vercel (Frontend), Render/Heroku (Backend)
+- **Deployment:** Vercel (Frontend and Backend)
 
 ## 📦 Installation
 
